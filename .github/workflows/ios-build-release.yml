@@ -1,0 +1,17 @@
+name: IOS Release
+on: [pull_request]
+jobs:
+  build:
+    name: Build
+    runs-on: macos-12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: |
+          yarn mount
+
+      - name: Build IOS Release
+        run: |
+          yarn ios-build-release
