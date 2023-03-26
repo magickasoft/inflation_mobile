@@ -1,5 +1,8 @@
+import messaging from '@react-native-firebase/messaging';
 import {Linking, Platform} from 'react-native';
 import RNPermissions, {PERMISSIONS, RESULTS} from 'react-native-permissions';
+
+import {useTranslation} from '../i18n';
 
 export const APP_TRACKING_TRANSPARENCY = 'appTrackingTransparency';
 export const LOCATION = 'location';
@@ -28,42 +31,59 @@ export const openSettingsPermission = Platform.select({
 });
 
 export const PERMISSIONS_BUTTONS = () => {
+  const {t} = useTranslation();
   return [
     {
-      text: 'goToSettings',
+      text: t('goToSettings'),
       onPress: openSettingsPermission,
     },
     {
-      text: 'cancel',
+      text: t('cancel'),
       style: 'cancel',
       onPress: () => {},
     },
   ];
 };
 
-export const checkPermission = async (
-  permission: any,
-  success = () => {},
-  fail = () => {},
-) => {
-  try {
-    const status = await RNPermissions.check(permission);
-    if (status === RESULTS.DENIED) {
-      const requestStatus = await RNPermissions.request(permission);
-      if (
-        requestStatus === RESULTS.GRANTED ||
-        requestStatus === RESULTS.LIMITED
-      ) {
-        success();
+export const checkPermission = (permission: any) =>
+  new Promise<any>(async (resolve, reject) => {
+    try {
+      const status = await RNPermissions.check(permission);
+      // console.log(`check - ${permission}::`, status);
+      if (status === RESULTS.DENIED) {
+        const requestStatus = await RNPermissions.request(permission);
+        // console.log(`request - ${permission}::`, requestStatus);
+        if (
+          requestStatus === RESULTS.GRANTED ||
+          requestStatus === RESULTS.LIMITED
+        ) {
+          resolve(status);
+        } else {
+          reject();
+        }
       }
+      if (status === RESULTS.GRANTED || status === RESULTS.LIMITED) {
+        resolve(status);
+      }
+      if (status === RESULTS.BLOCKED) {
+        reject();
+      }
+    } catch (e) {
+      console.log('Error:', e);
+      reject();
     }
-    if (status === RESULTS.GRANTED || status === RESULTS.LIMITED) {
-      success();
+  });
+
+export const checkNotificationPermission = () =>
+  new Promise<any>(async (resolve, reject) => {
+    try {
+      const status = await messaging().hasPermission();
+      if (status === messaging.AuthorizationStatus.NOT_DETERMINED) {
+        await messaging().requestPermission();
+      }
+      resolve(status);
+    } catch (e) {
+      console.log('Error:', e);
+      reject();
     }
-    if (status === RESULTS.BLOCKED) {
-      fail();
-    }
-  } catch (e) {
-    console.log('Error:', e);
-  }
-};
+  });

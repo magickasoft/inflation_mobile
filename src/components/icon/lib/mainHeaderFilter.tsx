@@ -1,0 +1,13 @@
+import React from 'react';
+import SVG, {Path} from 'react-native-svg';
+
+export const mainHeaderFilter = ({color = '#3C3C47', ...rest}) => {
+  return (
+    <SVG viewBox="0 0 22 18" {...rest}>
+      <Path
+        d="M19.2501 14.5V17.25H17.4167V14.5H15.5834V11.75H21.0834V14.5H19.2501ZM4.58341 14.5V17.25H2.75008V14.5H0.916748V11.75H6.41675V14.5H4.58341ZM10.0834 3.5V0.75H11.9167V3.5H13.7501V6.25H8.25008V3.5H10.0834ZM10.0834 8.08333H11.9167V17.25H10.0834V8.08333ZM2.75008 9.91667V0.75H4.58341V9.91667H2.75008ZM17.4167 9.91667V0.75H19.2501V9.91667H17.4167Z"
+        fill={color}
+      />
+    </SVG>
+  );
+};
