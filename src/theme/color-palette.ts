@@ -8,6 +8,7 @@ export interface BaseColor {
   White1: string;
   Orange: string;
   Red: string;
+  Green: string;
   Blue: string;
   Blue0: string;
   Blue1: string;
@@ -20,6 +21,9 @@ export interface BaseColor {
   Gray5: string;
   Gray6: string;
   Gray7: string;
+  Gray8: string;
+  Gray9: string;
+  Gray10: string;
   Rating: string;
   Success: string;
   Overlay: string;
@@ -37,6 +41,7 @@ export const color: BaseColor = {
   White1: '#ffffff80',
   Orange: '#FF933B',
   Red: '#EB5757',
+  Green: '#33d185',
   Blue: '#24B0FF',
   Blue0: '#007AFF',
   Blue1: '#DFF3FF',
@@ -49,6 +54,9 @@ export const color: BaseColor = {
   Gray5: '#F3FBFF',
   Gray6: '#b4bac7',
   Gray7: '#788D99',
+  Gray8: '#CCCCD1',
+  Gray9: '#ffffff99',
+  Gray10: '#C5C6CF',
   Rating: '#23d1ff',
   Success: '#27AE60',
   Overlay: '#77777e',
