@@ -57,20 +57,20 @@ export const checkPermission = (permission: any) =>
           requestStatus === RESULTS.GRANTED ||
           requestStatus === RESULTS.LIMITED
         ) {
-          resolve(status);
+          resolve(requestStatus);
         } else {
-          reject();
+          reject(new Error(requestStatus));
         }
       }
       if (status === RESULTS.GRANTED || status === RESULTS.LIMITED) {
         resolve(status);
       }
       if (status === RESULTS.BLOCKED) {
-        reject();
+        reject(new Error(status));
       }
     } catch (e) {
-      console.log('Error:', e);
-      reject();
+      reject(e);
+      console.error(e);
     }
   });
 
@@ -83,7 +83,7 @@ export const checkNotificationPermission = () =>
       }
       resolve(status);
     } catch (e) {
-      console.log('Error:', e);
-      reject();
+      reject(e);
+      console.error(e);
     }
   });

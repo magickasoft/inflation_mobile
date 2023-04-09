@@ -1,4 +1,5 @@
 {
+    "next": "Next",
     "verifyMail": "Verify mail",
     "passwordReset": "Password reset",
     "passwordResetSuccessToast": "An email with instructions for resetting your password has been sent to your email",
