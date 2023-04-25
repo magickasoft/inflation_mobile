@@ -63,6 +63,7 @@ export const useFirebaseAuth = () => {
     currentUser,
     initializing,
     user,
+    setUser,
     sendEmailVerification,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
