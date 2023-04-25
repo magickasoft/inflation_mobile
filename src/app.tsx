@@ -11,6 +11,7 @@ import 'dayjs/locale/zh';
 
 import {ThemeProvider as RestyleThemeProvider} from '@shopify/restyle';
 import React from 'react';
+import {startNetworkLogging} from 'react-native-network-logger';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {enableFreeze} from 'react-native-screens';
 import {ToastProvider} from 'react-native-toast-notifications';
@@ -19,6 +20,8 @@ import {AppNavigator} from './navigation/AppNavigator';
 import {QueryClientProvider} from './QueryClientProvider';
 import {ThemeSchemeProvider} from './theme';
 import {restyleTheme} from './theme/restyleTheme';
+
+startNetworkLogging();
 
 enableFreeze();
 

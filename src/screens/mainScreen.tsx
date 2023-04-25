@@ -5,15 +5,19 @@ import React, {FC, useState} from 'react';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styled from 'styled-components/native';
 
-import {Button, DismissKeyboardView, Input} from '../../components';
-import {useFirebaseAuth} from '../../hooks/useFirebaseAuth';
-import {useTranslation} from '../../i18n';
-import {AppStackParamList} from '../../navigation/AppNavigator';
-import {color, DefaultThemeScheme} from '../../theme';
-import {withCheckGetCurrentPosition} from '../../utils/geolocationService';
-import {normalizeCoordinate} from '../../utils/normalizeCoordinate';
-import {ReceiptImage} from './ReceiptImage';
-import {Voice} from './Voice';
+import {
+  Button,
+  DismissKeyboardView,
+  Input,
+  ReceiptImage,
+  Voice,
+} from '../components';
+import {useFirebaseAuth} from '../hooks/useFirebaseAuth';
+import {useTranslation} from '../i18n';
+import {AppStackParamList} from '../navigation/AppNavigator';
+import {color, DefaultThemeScheme} from '../theme';
+import {withCheckGetCurrentPosition} from '../utils/geolocationService';
+import {normalizeCoordinate} from '../utils/normalizeCoordinate';
 
 type MainScreenProps = StackScreenProps<AppStackParamList>;
 

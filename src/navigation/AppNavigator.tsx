@@ -3,13 +3,13 @@ import React from 'react';
 
 import {useAppState} from '../hooks/useAppState';
 import {useFirebaseAuth} from '../hooks/useFirebaseAuth';
-import {MainScreen} from '../screens/MainScreen';
 import {PasswordResetScreen} from '../screens/passwordReset';
 import {SignInUpScreen} from '../screens/SignInUpScreen';
 import {deviceWidth} from '../utils/ui';
+import {BottomNavigator} from './BottomNavigator';
 
 export type AppStackParamList = {
-  Home: undefined;
+  Root: undefined;
   SignInUp: undefined;
   PasswordReset: undefined;
 };
@@ -23,7 +23,7 @@ export const AppNavigator = () => {
   if (initializing) {
     return null;
   }
-  // console.log('user::', user);
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -38,7 +38,7 @@ export const AppNavigator = () => {
         </>
       ) : (
         <>
-          <Stack.Screen name="Home" component={MainScreen} />
+          <Stack.Screen name="Root" component={BottomNavigator} />
         </>
       )}
     </Stack.Navigator>

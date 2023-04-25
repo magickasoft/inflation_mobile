@@ -3,9 +3,10 @@ import {useTranslation} from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import styled from 'styled-components/native';
 
-import {Icon, OptionsModal} from '../../components';
-import {useImageCropPicker} from '../../hooks/useImageCropPicker';
-import {DefaultThemeScheme} from '../../theme';
+import {useImageCropPicker} from '../hooks/useImageCropPicker';
+import {DefaultThemeScheme} from '../theme';
+import {Icon} from './icon/Icon';
+import {OptionsModal} from './modal';
 
 const Container = styled.View<{
   theme: DefaultThemeScheme;

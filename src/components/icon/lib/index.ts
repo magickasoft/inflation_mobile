@@ -23,7 +23,6 @@ import {calendar} from './calendar';
 import {calendarFull} from './calendarFull';
 import {cardArrow} from './cardArrow';
 import {cartEmpty} from './cartEmpty';
-import {chat} from './chat';
 import {chatEmpty} from './chatEmpty';
 import {chatMessage} from './chatMessage';
 import {check} from './check';
@@ -42,6 +41,7 @@ import {dislike} from './dislike';
 import {email} from './email';
 import {error} from './error';
 import {eTicket} from './eTicket';
+import {events} from './events';
 import {eye} from './eye';
 import {eyeClose} from './eyeClose';
 import {face} from './face';
@@ -49,6 +49,7 @@ import {facebook} from './facebook';
 import {facebookMessage} from './facebookMessage';
 import {failure} from './failure';
 import {family} from './family';
+import {favorite} from './favorite';
 import {feature} from './feature';
 import {finish} from './finish';
 import {flag} from './flag';
@@ -60,7 +61,6 @@ import {gps} from './gps';
 import {group} from './group';
 import {groupSize} from './groupSize';
 import {help} from './help';
-import {home} from './home';
 import {housingType} from './housingType';
 import {include} from './include';
 import {info} from './info';
@@ -163,7 +163,7 @@ export default {
   arrow,
   back,
   basket,
-  chat,
+  favorite,
   check,
   chevron,
   clear,
@@ -174,7 +174,7 @@ export default {
   cardArrow,
   profileSandTime,
   profileDialog,
-  home,
+  events,
   profile,
   star,
   mainHeaderMap,

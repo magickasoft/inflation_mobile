@@ -1,7 +1,7 @@
 import React from 'react';
 import SVG, {Path} from 'react-native-svg';
 
-export const chat = ({color = '#868A93', ...rest}) => {
+export const favorite = ({color = '#868A93', ...rest}) => {
   return (
     <SVG viewBox="0 0 28 28" {...rest}>
       <Path

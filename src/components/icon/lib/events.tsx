@@ -1,7 +1,7 @@
 import React from 'react';
 import SVG, {Path} from 'react-native-svg';
 
-export const home = ({color = '#868A93', ...rest}) => {
+export const events = ({color = '#868A93', ...rest}) => {
   return (
     <SVG viewBox="0 0 28 28" {...rest}>
       <Path

@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {ActivityIndicator, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
-import {DefaultThemeScheme} from '../../theme';
+import {DefaultThemeScheme} from '../theme';
 
 const Container = styled.View<{
   theme: DefaultThemeScheme;
