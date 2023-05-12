@@ -23,7 +23,7 @@ interface ContainerProps {
 const Container = styled.View<ContainerProps>`
   height: ${props => props.height}px;
   background-color: ${props => props.backgroundColor};
-  border-radius: 8px;
+  border-radius: 2px;
   justify-content: center;
   align-items: center;
   margin-horizontal: ${props => props.marginHorizontal ?? 38}px;

@@ -15,6 +15,7 @@ export const restyleTheme = createTheme({
     gray8: color.Gray8,
     gray9: color.Gray9,
     gray10: color.Gray10,
+    orange: color.Orange,
   },
   spacing: {
     '-10': -10,

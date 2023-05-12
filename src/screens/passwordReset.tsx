@@ -87,7 +87,7 @@ export const PasswordResetScreen: FC<PasswordResetScreenProps> = () => {
               />
               <Button
                 disabled={!isValid}
-                backgroundColor={color.Blue}
+                backgroundColor={color.Orange}
                 textColor={color.White}
                 text={t('send')}
                 onPress={handleSubmit}

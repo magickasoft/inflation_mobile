@@ -27,7 +27,7 @@ const s = StyleSheet.create({
   },
   label: {
     position: 'absolute',
-    color: color.Blue,
+    color: '#FFA152',
   },
   clearBtn: {
     padding: 8,

@@ -99,7 +99,7 @@ export const SignInUpScreen: FC<SignInUpScreenProps> = ({navigation}) => {
                     <Text
                       variant="normal"
                       mb="15"
-                      color="blue"
+                      color="orange"
                       textAlign="center">
                       {t('forgotYourPassword')}
                     </Text>
@@ -111,7 +111,7 @@ export const SignInUpScreen: FC<SignInUpScreenProps> = ({navigation}) => {
                   <Text
                     variant="normal"
                     mb="15"
-                    color="blue"
+                    color="orange"
                     textAlign="center">
                     {changeAuthLogicText}
                   </Text>
@@ -120,7 +120,7 @@ export const SignInUpScreen: FC<SignInUpScreenProps> = ({navigation}) => {
               </HideContent>
               <Button
                 disabled={!isSignIn ? disabled || !isValid : !isValid}
-                backgroundColor={color.Blue}
+                backgroundColor={color.Orange}
                 textColor={color.White}
                 text={buttonTitle}
                 onPress={handleSubmit}

@@ -39,7 +39,7 @@ export const color: BaseColor = {
   Black2: '#868A93',
   White: '#FFFFFF',
   White1: '#ffffff80',
-  Orange: '#FF933B',
+  Orange: '#FFA152',
   Red: '#EB5757',
   Green: '#33d185',
   Blue: '#24B0FF',

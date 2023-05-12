@@ -9,7 +9,7 @@ import {useTranslation} from '../i18n';
 import {AppStackParamList} from '../navigation/AppNavigator';
 import {color, DefaultThemeScheme} from '../theme';
 
-type ProfileScreenProps = StackScreenProps<AppStackParamList>;
+type ProfileScreenProps = StackScreenProps<AppStackParamList, 'Profile'>;
 
 const Container = styled(KeyboardAwareScrollView)<{
   theme: DefaultThemeScheme;
@@ -47,7 +47,7 @@ export const ProfileScreen: FC<ProfileScreenProps> = () => {
           <ReceiptImage source={source} onChangeSource={setSource} />
           <Line />
           <Button
-            backgroundColor={color.Blue}
+            backgroundColor={color.Orange}
             textColor={color.White}
             text={t('signOutFromAccount')}
             onPress={signOut}

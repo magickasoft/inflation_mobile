@@ -4,7 +4,7 @@ import FastImage from 'react-native-fast-image';
 import styled from 'styled-components/native';
 
 import {useImageCropPicker} from '../hooks/useImageCropPicker';
-import {DefaultThemeScheme} from '../theme';
+import {DefaultThemeScheme, color} from '../theme';
 import {Icon} from './icon/Icon';
 import {OptionsModal} from './modal';
 
@@ -35,7 +35,7 @@ const Image = styled(FastImage)<{
   width: 180px;
   height: 180px;
   border-width: 1px;
-  border-color: #24b0ff;
+  border-color: ${color.Orange};
   border-radius: 90px;
 `;
 
@@ -57,12 +57,12 @@ export const ReceiptImage: FC<ReceiptImageProps> = memo(
 
     const options = [
       {
-        icon: {name: 'takeLib', size: 22},
+        icon: {name: 'takeLib', size: 22, color: color.Orange},
         label: t('takeFromLibrary'),
         onPress: handleOpenPicker,
       },
       {
-        icon: {name: 'takePhoto', size: 22},
+        icon: {name: 'takePhoto', size: 22, color: color.Orange},
         label: t('takePhoto'),
         onPress: handleOpenCamera,
       },
@@ -80,7 +80,7 @@ export const ReceiptImage: FC<ReceiptImageProps> = memo(
             resizeMode={FastImage.resizeMode.cover}
           />
           <IconContainer onPress={() => setVisible(true)}>
-            <Icon name={'photo'} size={15} />
+            <Icon name={'photo'} size={15} color={color.Orange} />
           </IconContainer>
         </Container>
       </>

@@ -14,7 +14,7 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
   justify-content: center;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  border: 1px solid #c5cbd8;
+  border: 1px solid #ededed;
   border-radius: ${props => props.radius}px;
 `;
 
@@ -23,7 +23,7 @@ export const Button = styled.TouchableOpacity`
   justify-content: center;
   width: 24px;
   height: 24px;
-  border: 1px solid #c5cbd8;
+  border: 1px solid #ededed;
   border-radius: 6px;
 `;
 
@@ -54,7 +54,7 @@ export const CheckBox: FC<{
           size={14}
           width={14}
           height={10}
-          color={color.Blue}
+          color={color.Orange}
         />
       )}
     </Container>
