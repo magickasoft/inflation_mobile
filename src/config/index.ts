@@ -1,11 +1,7 @@
 import {isDev} from '../utils/ui';
 
 export interface DefaultLocalConfig {
-  MAPTILER_ENGLISH: string;
-  MAPTILER_RUSSIA: string;
-  GOOGLE_MAP_API_KEY_ANDROID: string;
-  GOOGLE_MAP_API_KEY_IOS: string;
-  GOOGLE_MAP_API_KEY: string;
+  MAPTILER: string;
   baseURL: string;
   LOGGER: boolean;
 }

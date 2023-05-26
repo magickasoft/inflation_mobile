@@ -7,6 +7,7 @@ import {Icon} from '../components';
 import {config} from '../config';
 import {LoggerScreen} from '../screens/logger';
 // import {MainScreen} from '../screens/mainScreen';
+import {MapScreen} from '../screens/mapScreen';
 import {ProfileScreen} from '../screens/profileScreen';
 import {defaultTabBarOptions, defaultTabOptions} from './constants';
 
@@ -48,13 +49,13 @@ export const BottomNavigator = () => {
         }}
       />
       <Stack.Screen
-        name="Favorite"
-        component={View}
+        name="Map"
+        component={MapScreen}
         options={{
-          title: t('favorite'),
+          title: t('map'),
           headerShown: false,
-          tabBarLabel: t('favorite'),
-          tabBarIcon: tabBarIcon('like'),
+          tabBarLabel: t('map'),
+          tabBarIcon: tabBarIcon('location'),
           ...defaultTabOptions,
         }}
       />
@@ -65,18 +66,7 @@ export const BottomNavigator = () => {
           title: t('add'),
           headerShown: false,
           tabBarLabel: t('add'),
-          tabBarIcon: tabBarIcon('plus'),
-          ...defaultTabOptions,
-        }}
-      />
-      <Stack.Screen
-        name="Map"
-        component={View}
-        options={{
-          title: t('map'),
-          headerShown: false,
-          tabBarLabel: t('map'),
-          tabBarIcon: tabBarIcon('location'),
+          tabBarIcon: tabBarIcon('add'),
           ...defaultTabOptions,
         }}
       />

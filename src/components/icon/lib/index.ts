@@ -5,6 +5,7 @@ import {activitiesBadge} from './activitiesBadge';
 import {activityLabel} from './activitiyLabel';
 import {activity} from './activity';
 import {activityRestrictions} from './activityRestrictions';
+import {add} from './add';
 import {address} from './address';
 import {amenity} from './amenity';
 import {answer} from './answer';
@@ -162,6 +163,7 @@ export default {
   eye,
   arrow,
   back,
+  add,
   basket,
   favorite,
   check,

@@ -14,6 +14,7 @@ export type AppStackParamList = {
   PasswordReset: undefined;
   Logger: undefined;
   Profile: undefined;
+  Map: undefined;
 };
 
 const Stack = createStackNavigator<AppStackParamList>();

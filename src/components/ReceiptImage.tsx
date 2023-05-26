@@ -4,7 +4,7 @@ import FastImage from 'react-native-fast-image';
 import styled from 'styled-components/native';
 
 import {useImageCropPicker} from '../hooks/useImageCropPicker';
-import {DefaultThemeScheme, color} from '../theme';
+import {color, DefaultThemeScheme} from '../theme';
 import {Icon} from './icon/Icon';
 import {OptionsModal} from './modal';
 
