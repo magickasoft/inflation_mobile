@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 
 import {DefaultThemeScheme} from '../../theme';
@@ -21,8 +21,8 @@ const RoundedBar = styled.View<{theme: DefaultThemeScheme}>`
   border-radius: 5px;
 `;
 
-export const SwipeBar: FC = () => (
+export const SwipeBar: React.FC = React.memo(() => (
   <Container>
     <RoundedBar />
   </Container>
-);
+));

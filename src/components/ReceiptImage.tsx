@@ -1,11 +1,11 @@
-import React, {FC, memo, useState} from 'react';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import styled from 'styled-components/native';
 
 import {useImageCropPicker} from '../hooks/useImageCropPicker';
 import {color, DefaultThemeScheme} from '../theme';
-import {Icon} from './icon/Icon';
+import {Icon} from './icon/icon';
 import {OptionsModal} from './modal';
 
 const Container = styled.View<{
@@ -41,11 +41,11 @@ const Image = styled(FastImage)<{
 
 type ReceiptImageProps = {source: any; onChangeSource: (data: any) => void};
 
-export const ReceiptImage: FC<ReceiptImageProps> = memo(
+export const ReceiptImage: React.FC<ReceiptImageProps> = React.memo(
   ({source, onChangeSource}) => {
     const {t} = useTranslation();
     const {openCamera, openPicker} = useImageCropPicker();
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = React.useState(false);
 
     const handleOpenPicker = () => {
       openPicker(data => onChangeSource(data));

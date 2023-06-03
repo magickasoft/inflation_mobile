@@ -1,13 +1,12 @@
-import delay from 'lodash.delay';
-import React, {FC} from 'react';
+import React from 'react';
 import {StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import styled from 'styled-components/native';
 
 import {useTranslation} from '../../i18n';
 import {DefaultThemeScheme} from '../../theme';
 import {DismissKeyboardView} from '../dismissKeyboardView';
-import {Icon} from '../icon/Icon';
-import {ModalWrapper} from './ModalWrapper';
+import {Icon} from '../icon/icon';
+import {ModalWrapper} from './modalWrapper';
 
 const Container = styled(DismissKeyboardView)<{
   theme: DefaultThemeScheme;
@@ -78,11 +77,11 @@ const Cancel = styled.View<{
   align-items: center;
 `;
 
-export const OptionsModal: FC<{
+export const OptionsModal: React.FC<{
   onClose?: () => void;
   options?: any;
   isVisible: boolean;
-}> = ({onClose, options = [], ...props}) => {
+}> = React.memo(({onClose, options = [], ...props}) => {
   const {t} = useTranslation();
 
   return (
@@ -94,7 +93,7 @@ export const OptionsModal: FC<{
               if (onClose) {
                 onClose();
               }
-              delay(() => option.onPress(), onClose ? 750 : 0, 'later');
+              setTimeout(() => option.onPress(), onClose ? 750 : 0);
             };
             return (
               <TouchableWithoutFeedback onPress={handler} key={option.label}>
@@ -120,4 +119,4 @@ export const OptionsModal: FC<{
       </Container>
     </ModalWrapper>
   );
-};
+});

@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 
-import {CheckBox} from '../../components/';
-import {DefaultThemeScheme} from '../../theme';
-import {openURL} from '../../utils/ui';
+import {DefaultThemeScheme} from '../theme';
+import {openURL} from '../utils/ui';
+import {CheckBox} from './checkbox';
 
 const Container = styled.View`
   margin: 0 0 24px 0;
@@ -31,22 +31,18 @@ const Link = styled.TouchableOpacity<{
   width: 90%;
 `;
 
-const Checker = styled(CheckBox)<{
-  theme: DefaultThemeScheme;
-}>``;
-
-export const SwitchItem: FC<{
+export const ListItemWithSwitch: React.FC<{
   onValueChange: () => void;
   url: string;
   text: string;
   value: boolean;
-}> = ({url, text, onValueChange, value}) => {
+}> = React.memo(({url, text, onValueChange, value}) => {
   return (
     <Container>
       <Link onPress={() => openURL(url)}>
         <Label>{text}</Label>
       </Link>
-      <Checker checked={value} onChange={onValueChange} size={24} radius={6} />
+      <CheckBox checked={value} onChange={onValueChange} size={24} radius={6} />
     </Container>
   );
-};
+});
