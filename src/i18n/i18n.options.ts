@@ -27,4 +27,4 @@ export const resources = {
   },
 };
 
-export const fallback = {languageTag: 'ru', isRTL: false};
+export const fallback = {languageTag: 'en', isRTL: false};

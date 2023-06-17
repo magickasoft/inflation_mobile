@@ -19,7 +19,7 @@ i18n
       zh: ['en'],
       'zh-Hans': ['zh'],
       es: ['en'],
-      default: ['ru'],
+      default: ['en'],
     },
     interpolation: {
       escapeValue: false,
