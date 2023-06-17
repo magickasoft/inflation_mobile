@@ -10,7 +10,7 @@ import {
 
 import {color} from '../theme';
 import {isIOS} from '../utils/ui';
-import {Icon} from './icon/icon';
+import {Icon} from './icon/ticon';
 
 const s = StyleSheet.create({
   container: {

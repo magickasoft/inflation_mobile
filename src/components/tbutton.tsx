@@ -10,7 +10,7 @@ import {StyleSheet} from 'react-native';
 import normalize from 'react-native-normalize';
 import styled from 'styled-components/native';
 
-import {Text} from './text';
+import {Text} from './ttext';
 
 interface ContainerProps {
   backgroundColor: string;

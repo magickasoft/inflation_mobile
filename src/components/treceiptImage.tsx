@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 
 import {useImageCropPicker} from '../hooks/useImageCropPicker';
 import {color, DefaultThemeScheme} from '../theme';
-import {Icon} from './icon/icon';
+import {Icon} from './icon/ticon';
 import {OptionsModal} from './modal';
 
 const Container = styled.View<{
