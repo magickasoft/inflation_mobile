@@ -13,35 +13,28 @@ type IconProps = {
   stroke?: string;
 };
 
-export const Icon = ({
-  name,
-  size,
-  width,
-  height,
-  color,
-  opacity,
-  stroke,
-  ...rest
-}: IconProps) => {
-  if (!name) {
-    return null;
-  }
+export const Icon: React.FC<IconProps> = React.memo(
+  ({name, size, width, height, color, opacity, stroke, ...rest}) => {
+    if (!name) {
+      return null;
+    }
 
-  const svg = get(lib, name);
+    const svg = get(lib, name);
 
-  if (!svg) {
-    console.error(`Requested unknown icon '${name}'`);
-    return null;
-  }
+    if (!svg) {
+      console.error(`Requested unknown icon '${name}'`);
+      return null;
+    }
 
-  const svgWidth = size || width;
-  const svgHeight = size || height;
-  return React.createElement(svg, {
-    ...rest,
-    color,
-    width: svgWidth,
-    height: svgHeight,
-    opacity,
-    stroke,
-  });
-};
+    const svgWidth = size || width;
+    const svgHeight = size || height;
+    return React.createElement(svg, {
+      ...rest,
+      color,
+      width: svgWidth,
+      height: svgHeight,
+      opacity,
+      stroke,
+    });
+  },
+);

@@ -2,8 +2,8 @@ import React from 'react';
 import {useToast} from 'react-native-toast-notifications';
 import {ToastOptions} from 'react-native-toast-notifications/src/toast';
 
-import {useFirebaseAuth} from '../../hooks/useFirebaseAuth';
-import {useTranslation} from '../../i18n';
+import {useTranslation} from '../i18n';
+import {useFirebaseAuth} from './useFirebaseAuth';
 
 enum ErrorCode {
   EmailAlreadyInUse = 'auth/email-already-in-use',

@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 
 import {DefaultThemeScheme} from '../../theme';
 
-const Container = styled.View<{theme: DefaultThemeScheme}>`
+const Container = styled.View`
   position: absolute;
   top: -25px;
   left: 0;
@@ -21,8 +21,8 @@ const RoundedBar = styled.View<{theme: DefaultThemeScheme}>`
   border-radius: 5px;
 `;
 
-export const SwipeBar: FC = () => (
+export const SwipeBar: React.FC = React.memo(() => (
   <Container>
     <RoundedBar />
   </Container>
-);
+));

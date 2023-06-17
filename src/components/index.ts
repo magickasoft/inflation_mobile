@@ -1,14 +1,15 @@
-export {Button} from './Button';
+export {Button} from './button';
 export {CheckBox} from './checkbox';
 export {
   DismissKeyboardHOC,
   DismissKeyboardView,
   KeyboardAvoidingWrapper,
 } from './dismissKeyboardView';
-export {Icon} from './icon/Icon';
-export {Input} from './Input';
+export {Icon} from './icon/icon';
+export {Input} from './input';
 export {KeyboardHide} from './keyboardHide';
+export {ListItemWithSwitch} from './listItemWithSwitch';
 export {ImageViewer, Modal, ModalWrapper, OptionsModal} from './modal';
-export {ReceiptImage} from './ReceiptImage';
-export {Text} from './Text';
-export {Voice} from './Voice';
+export {ReceiptImage} from './receiptImage';
+export {Text} from './text';
+export {Voice} from './voice';

@@ -1,15 +1,15 @@
-import React, {FC} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 
-import {color, DefaultThemeScheme} from '../theme';
-import {Icon} from './icon/Icon';
+import {color} from '../theme';
+import {Icon} from './icon/icon';
 
 interface ContainerProps {
   size: number;
   radius: number;
 }
 
-export const Container = styled.TouchableOpacity<ContainerProps>`
+const Container = styled.TouchableOpacity<ContainerProps>`
   align-items: center;
   justify-content: center;
   width: ${props => props.size}px;
@@ -18,29 +18,12 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
   border-radius: ${props => props.radius}px;
 `;
 
-export const Button = styled.TouchableOpacity`
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border: 1px solid #ededed;
-  border-radius: 6px;
-`;
-
-export const CountNumber = styled.Text<{theme: DefaultThemeScheme}>`
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-  color: ${({theme}) => theme.buttons.secondary.text};
-`;
-
-export const CheckBox: FC<{
+export const CheckBox: React.FC<{
   checked: boolean;
   size: number;
   radius: number;
   onChange: (check?: boolean) => void;
-}> = ({checked, onChange, size, radius}) => {
+}> = React.memo(({checked, onChange, size, radius}) => {
   return (
     <Container
       size={size}
@@ -59,4 +42,4 @@ export const CheckBox: FC<{
       )}
     </Container>
   );
-};
+});

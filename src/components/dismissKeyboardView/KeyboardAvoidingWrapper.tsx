@@ -3,11 +3,11 @@ import {KeyboardAvoidingView, View} from 'react-native';
 
 import {isAndroid} from '../../utils/ui';
 
-export const KeyboardAvoidingWrapper = ({
-  disableAvoiding = false,
-  ...props
-}) => {
-  const Wrapper = isAndroid || disableAvoiding ? View : KeyboardAvoidingView;
+type KeyboardAvoidingWrapperProps = {disableAvoiding: boolean};
 
-  return <Wrapper {...props} behavior="padding" />;
-};
+export const KeyboardAvoidingWrapper: React.FC<KeyboardAvoidingWrapperProps> =
+  React.memo(({disableAvoiding = false, ...props}) => {
+    const Wrapper = isAndroid || disableAvoiding ? View : KeyboardAvoidingView;
+
+    return <Wrapper {...props} behavior="padding" />;
+  });
