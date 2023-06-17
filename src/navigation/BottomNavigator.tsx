@@ -1,11 +1,11 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
 
 import {Icon} from '../components';
+import {useTranslation} from '../i18n';
 import {MapScreen} from '../screens/map.screen';
 import {ProfileScreen} from '../screens/profile.screen';
 import {

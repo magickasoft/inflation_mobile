@@ -1,9 +1,9 @@
 import React from 'react';
-import {useTranslation} from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import styled from 'styled-components/native';
 
 import {useImageCropPicker} from '../hooks/useImageCropPicker';
+import {useTranslation} from '../i18n';
 import {color, DefaultThemeScheme} from '../theme';
 import {Icon} from './icon/icon';
 import {OptionsModal} from './modal';
