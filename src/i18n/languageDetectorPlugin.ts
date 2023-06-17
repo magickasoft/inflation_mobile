@@ -1,6 +1,5 @@
 declare var module: any;
 import {NativeModules} from 'react-native';
-import * as RNLocalize from 'react-native-localize';
 
 import {storage} from '../storage.mmkv';
 import {isIOS} from '../utils/ui';
@@ -23,13 +22,9 @@ const languageDetectorPlugin = {
         : NativeModules.I18nManager.localeIdentifier; //ANDROID
       const deviceLanguage =
         locale &&
-        ['ru', 'en'].includes(locale.slice(0, 2)) &&
+        Object.keys(resources).includes(locale.slice(0, 2)) &&
         locale.slice(0, 2);
-      const languageTag =
-        deviceLanguage ||
-        RNLocalize.findBestAvailableLanguage(Object.keys(resources))
-          ?.languageTag ||
-        fallback.languageTag;
+      const languageTag = deviceLanguage || fallback.languageTag;
       return languageTag;
     }
   },

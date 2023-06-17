@@ -1,4 +1,4 @@
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from '../i18n';
 
 const MAPTILER =
   'https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=LEgnW6rLIATYGpn1aObS';

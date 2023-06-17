@@ -1,9 +1,9 @@
 import V from '@react-native-community/voice';
 import React from 'react';
-import {useTranslation} from 'react-i18next';
 import {ActivityIndicator, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
+import {useTranslation} from '../i18n';
 import {DefaultThemeScheme} from '../theme';
 
 const Container = styled.View<{

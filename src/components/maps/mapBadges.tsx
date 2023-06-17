@@ -1,8 +1,8 @@
 import React from 'react';
-import {useTranslation} from 'react-i18next';
 import {Pressable, StyleSheet, View} from 'react-native';
 import styled from 'styled-components/native';
 
+import {useTranslation} from '../../i18n';
 import {color} from '../../theme';
 import {Icon} from '../icon/icon';
 import {Text} from '../text';
