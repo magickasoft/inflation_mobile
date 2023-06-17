@@ -4,8 +4,8 @@ import {Pressable, StyleSheet, View} from 'react-native';
 import styled from 'styled-components/native';
 
 import {color} from '../../theme';
-import {Icon} from '../icon/ticon';
-import {Text} from '../ttext';
+import {Icon} from '../icon/icon';
+import {Text} from '../text';
 
 const styles = StyleSheet.create({
   badge: {

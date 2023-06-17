@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import {color} from '../theme';
-import {Icon} from './icon/ticon';
+import {Icon} from './icon/icon';
 
 interface ContainerProps {
   size: number;

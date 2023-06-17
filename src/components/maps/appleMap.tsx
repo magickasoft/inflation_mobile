@@ -11,7 +11,7 @@ import MapView, {
 import {Deltas} from '../../screens/map.screen';
 import {color} from '../../theme/color-palette';
 import {setMarkerImage} from '../../utils/setMarkerImage';
-import {Icon} from '../icon/ticon';
+import {Icon} from '../icon/icon';
 import {styles} from './styles';
 import {useMap} from './useMap';
 import {UserLocationButton} from './userLocationButton';

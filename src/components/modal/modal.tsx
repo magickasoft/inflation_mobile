@@ -5,8 +5,8 @@ import styled from 'styled-components/native';
 import {useTranslation} from '../../i18n';
 import {color} from '../../theme';
 import {DismissKeyboardView} from '../dismissKeyboardView';
-import {ModalWrapper} from './tmodalWrapper';
-import {SwipeBar} from './tswipeBar';
+import {ModalWrapper} from './modalWrapper';
+import {SwipeBar} from './swipeBar';
 
 const s = StyleSheet.create({
   container: {

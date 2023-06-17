@@ -5,8 +5,8 @@ import styled from 'styled-components/native';
 import {useTranslation} from '../../i18n';
 import {DefaultThemeScheme} from '../../theme';
 import {DismissKeyboardView} from '../dismissKeyboardView';
-import {Icon} from '../icon/ticon';
-import {ModalWrapper} from './tmodalWrapper';
+import {Icon} from '../icon/icon';
+import {ModalWrapper} from './modalWrapper';
 
 const Container = styled(DismissKeyboardView)<{
   theme: DefaultThemeScheme;

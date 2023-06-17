@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import {DefaultThemeScheme} from '../theme';
 import {openURL} from '../utils/ui';
-import {CheckBox} from './tcheckbox';
+import {CheckBox} from './checkbox';
 
 const Container = styled.View`
   margin: 0 0 24px 0;

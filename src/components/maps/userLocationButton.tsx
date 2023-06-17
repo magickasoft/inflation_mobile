@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import {Icon} from '../icon/ticon';
+import {Icon} from '../icon/icon';
 
 type ContainerProps = {
   bottom: number;
