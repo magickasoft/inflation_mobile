@@ -8,10 +8,10 @@ import MapView, {
   UrlTile,
 } from 'react-native-maps';
 
-import {Deltas} from '../../screens/mapScreen';
+import {Deltas} from '../../screens/map.screen';
 import {color} from '../../theme/color-palette';
 import {setMarkerImage} from '../../utils/setMarkerImage';
-import {Icon} from '../icon/Icon';
+import {Icon} from '../icon/icon';
 import {styles} from './styles';
 import {useMap} from './useMap';
 import {UserLocationButton} from './userLocationButton';

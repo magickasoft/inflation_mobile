@@ -1,5 +1,5 @@
 import V from '@react-native-community/voice';
-import React, {FC, memo, useEffect, useState} from 'react';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {ActivityIndicator, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
@@ -24,9 +24,9 @@ const Text = styled.Text<{
 
 type VoiceProps = {onChangeText: (data: any) => void};
 
-export const Voice: FC<VoiceProps> = memo(({onChangeText}) => {
+export const Voice: React.FC<VoiceProps> = React.memo(({onChangeText}) => {
   const {t} = useTranslation();
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = React.useState(false);
 
   const speechStartHandler = (e: any) => {
     console.log('speechStart successful', e);
@@ -60,7 +60,7 @@ export const Voice: FC<VoiceProps> = memo(({onChangeText}) => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     V.onSpeechStart = speechStartHandler;
     V.onSpeechEnd = speechEndHandler;
     V.onSpeechResults = speechResultsHandler;

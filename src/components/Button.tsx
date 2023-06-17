@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React from 'react';
 import {
   GestureResponderEvent,
   Pressable,
@@ -10,7 +10,7 @@ import {StyleSheet} from 'react-native';
 import normalize from 'react-native-normalize';
 import styled from 'styled-components/native';
 
-import {Text} from './Text';
+import {Text} from './text';
 
 interface ContainerProps {
   backgroundColor: string;
@@ -30,7 +30,7 @@ const Container = styled.View<ContainerProps>`
   opacity: ${props => (props.disabled ? 0.5 : 1)};
 `;
 
-export const Button: FC<{
+export const Button: React.FC<{
   backgroundColor: string;
   textColor: string;
   text: string;
@@ -39,7 +39,7 @@ export const Button: FC<{
   textStyle?: StyleProp<TextStyle>;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
   marginHorizontal?: number;
-}> = memo(
+}> = React.memo(
   ({
     backgroundColor,
     textColor,
@@ -52,10 +52,7 @@ export const Button: FC<{
   }) => {
     const style = StyleSheet.compose(textStyle, {color: textColor});
     return (
-      <Pressable
-        onPress={onPress}
-        disabled={disabled || false}
-        style={({pressed}) => [{opacity: pressed ? 0.5 : 1}]}>
+      <Pressable onPress={onPress} disabled={disabled || false}>
         <Container
           marginHorizontal={marginHorizontal}
           height={normalize(50)}

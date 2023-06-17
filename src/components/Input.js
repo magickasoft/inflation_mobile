@@ -10,7 +10,7 @@ import {
 
 import {color} from '../theme';
 import {isIOS} from '../utils/ui';
-import {Icon} from './icon/Icon';
+import {Icon} from './icon/icon';
 
 const s = StyleSheet.create({
   container: {
@@ -47,7 +47,7 @@ const s = StyleSheet.create({
 const labelFontSizeValues = [17, 14];
 const labelTopValues = [10, -12];
 
-class Input extends PureComponent {
+export class Input extends PureComponent {
   constructor(props) {
     super(props);
     const stateIndex = +!!(props.value || props.placeholder).length;
@@ -310,5 +310,3 @@ class Input extends PureComponent {
     );
   }
 }
-
-export {Input};

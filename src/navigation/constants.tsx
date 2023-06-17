@@ -119,7 +119,7 @@ export const defaultScreenOptions = {
 
 export const navigationOptions = (
   navigation: any,
-  {headerTransparent = false, ...props} = {},
+  {headerTransparent = false, ...props}: any = {},
 ) => ({
   headerTransparent,
   headerStyle: !headerTransparent ? defaultStyle : undefined,

@@ -1,15 +1,18 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
+import styled from 'styled-components/native';
 
 import {Icon} from '../components';
-import {config} from '../config';
-import {LoggerScreen} from '../screens/logger';
-// import {MainScreen} from '../screens/mainScreen';
-import {MapScreen} from '../screens/mapScreen';
-import {ProfileScreen} from '../screens/profileScreen';
-import {defaultTabBarOptions, defaultTabOptions} from './constants';
+import {MapScreen} from '../screens/map.screen';
+import {ProfileScreen} from '../screens/profile.screen';
+import {
+  defaultScreenOptions,
+  defaultTabBarOptions,
+  defaultTabOptions,
+} from './constants';
 
 export type BottomStackParamList = {
   Events?: undefined;
@@ -21,6 +24,34 @@ export type BottomStackParamList = {
 };
 
 const Stack = createBottomTabNavigator<BottomStackParamList>();
+const HistoryStack = createStackNavigator<{HistoryScreen?: undefined}>();
+
+const Btn = styled.TouchableOpacity`
+  margin-right: 15px;
+`;
+
+export const HistoryScreenStack = () => {
+  const {t} = useTranslation();
+  return (
+    <HistoryStack.Navigator screenOptions={defaultScreenOptions as any}>
+      <HistoryStack.Screen
+        name="HistoryScreen"
+        component={View}
+        options={({navigation}) =>
+          ({
+            title: t('add'),
+            headerRight: () =>
+              (
+                <Btn onPress={() => navigation.navigate('AddEntity')}>
+                  <Icon name="plus" size={26} color="#FF7500" />
+                </Btn>
+              ) as any,
+          } as any)
+        }
+      />
+    </HistoryStack.Navigator>
+  );
+};
 
 type tabBarIconProps = {
   focused: boolean;
@@ -81,19 +112,6 @@ export const BottomNavigator = () => {
           ...defaultTabOptions,
         }}
       />
-      {config.LOGGER && (
-        <Stack.Screen
-          name="Logger"
-          component={LoggerScreen}
-          options={{
-            headerShown: false,
-            title: t('logger'),
-            tabBarLabel: t('logger'),
-            tabBarIcon: tabBarIcon('settings'),
-            ...defaultTabOptions,
-          }}
-        />
-      )}
     </Stack.Navigator>
   );
 };

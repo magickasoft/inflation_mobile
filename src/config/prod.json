@@ -1,5 +1,0 @@
-{
-    "baseURL": "https://api-public.prod/",
-    "LOGGER": false,
-    "MAPTILER": "https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=LEgnW6rLIATYGpn1aObS"
-}

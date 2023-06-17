@@ -1,2 +1,2 @@
-export {DismissKeyboardHOC, DismissKeyboardView} from './DismissKeyboardHOC';
-export {KeyboardAvoidingWrapper} from './KeyboardAvoidingWrapper';
+export {DismissKeyboardHOC, DismissKeyboardView} from './dismissKeyboardHOC';
+export {KeyboardAvoidingWrapper} from './keyboardAvoidingWrapper';

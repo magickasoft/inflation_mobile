@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import RNModal from 'react-native-modal';
 import styled from 'styled-components/native';
 
@@ -16,32 +16,34 @@ const Container = styled(RNModal)<{
       : 'justify-content: center'}
 `;
 
-export const ModalWrapper: FC<{
+export const ModalWrapper: React.FC<{
   isVisible?: boolean;
   onClose?: () => void;
   style?: any;
   children: any;
   direct?: 'center' | 'bottom';
-}> = ({
-  isVisible = false,
-  onClose,
-  style,
-  children,
-  direct = 'bottom',
-  ...props
-}) => (
-  <Container
-    {...props}
-    avoidKeyboard
-    direct={direct}
-    backdropOpacity={0.6}
-    backdropColor={color.Black}
-    deviceWidth={deviceWidth}
-    deviceHeight={deviceHeight}
-    style={style}
-    isVisible={isVisible}
-    onBackButtonPress={onClose}
-    onBackdropPress={onClose}>
-    {children}
-  </Container>
+}> = React.memo(
+  ({
+    isVisible = false,
+    onClose,
+    style,
+    children,
+    direct = 'bottom',
+    ...props
+  }) => (
+    <Container
+      {...props}
+      avoidKeyboard
+      direct={direct}
+      backdropOpacity={0.6}
+      backdropColor={color.Black}
+      deviceWidth={deviceWidth}
+      deviceHeight={deviceHeight}
+      style={style}
+      isVisible={isVisible}
+      onBackButtonPress={onClose}
+      onBackdropPress={onClose}>
+      {children}
+    </Container>
+  ),
 );

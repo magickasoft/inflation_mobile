@@ -1,7 +1,7 @@
 import firestore from '@react-native-firebase/firestore';
 import {StackScreenProps} from '@react-navigation/stack';
 import {Formik} from 'formik';
-import React, {FC, useState} from 'react';
+import React from 'react';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styled from 'styled-components/native';
 
@@ -15,15 +15,13 @@ import {
 import {useFirebaseAuth} from '../hooks/useFirebaseAuth';
 import {useTranslation} from '../i18n';
 import {AppStackParamList} from '../navigation/AppNavigator';
-import {color, DefaultThemeScheme} from '../theme';
+import {color} from '../theme';
 import {withCheckGetCurrentPosition} from '../utils/geolocationService';
 import {normalizeCoordinate} from '../utils/normalizeCoordinate';
 
-type MainScreenProps = StackScreenProps<AppStackParamList>;
+type AddEntityScreenProps = StackScreenProps<AppStackParamList>;
 
-const Container = styled(KeyboardAwareScrollView)<{
-  theme: DefaultThemeScheme;
-}>`
+const Container = styled(KeyboardAwareScrollView)`
   flex: 1;
 `;
 
@@ -32,10 +30,7 @@ const DismissKeyboard = styled(DismissKeyboardView)`
 `;
 
 const Form = styled.View`
-  margin-top: 20px;
-  flex: 1;
-  overflow: hidden;
-  margin: 0 15px 15px 15px;
+  margin: 15px;
 `;
 
 const TextInput = styled(Input).attrs(() => ({
@@ -46,20 +41,13 @@ const TextInput = styled(Input).attrs(() => ({
   margin-bottom: 15px;
 `;
 
-const Line = styled.View<{
-  theme: DefaultThemeScheme;
-}>`
-  width: 100%;
-  height: 15px;
-`;
-
 const initialFormValues = {productName: '', price: '', unit: '', quantity: ''};
 
-export const MainScreen: FC<MainScreenProps> = () => {
+export const AddEntityScreen: React.FC<AddEntityScreenProps> = () => {
   const {t} = useTranslation();
-  const {signOut, currentUser} = useFirebaseAuth();
-  const [source, setSource] = useState<any>(undefined);
-  const [step, setStep] = useState<number>(0);
+  const {currentUser} = useFirebaseAuth();
+  const [source, setSource] = React.useState<any>(undefined);
+  const [step, setStep] = React.useState<number>(0);
 
   const onSubmit = async (values: any, actions: any) => {
     try {
@@ -111,7 +99,7 @@ export const MainScreen: FC<MainScreenProps> = () => {
                   />
                   <Voice onChangeText={handleChange('productName')} />
                   <Button
-                    backgroundColor={color.Blue}
+                    backgroundColor={color.Orange}
                     textColor={color.White}
                     text={t('next')}
                     onPress={() => {
@@ -137,7 +125,7 @@ export const MainScreen: FC<MainScreenProps> = () => {
                   />
                   <Voice onChangeText={handleChange('price')} />
                   <Button
-                    backgroundColor={color.Blue}
+                    backgroundColor={color.Orange}
                     textColor={color.White}
                     text={t('next')}
                     onPress={() => {
@@ -163,7 +151,7 @@ export const MainScreen: FC<MainScreenProps> = () => {
                   />
                   <Voice onChangeText={handleChange('unit')} />
                   <Button
-                    backgroundColor={color.Blue}
+                    backgroundColor={color.Orange}
                     textColor={color.White}
                     text={t('next')}
                     onPress={() => {
@@ -190,20 +178,13 @@ export const MainScreen: FC<MainScreenProps> = () => {
                   <Voice onChangeText={handleChange('quantity')} />
                   <Button
                     disabled={!isValid}
-                    backgroundColor={color.Blue}
+                    backgroundColor={color.Orange}
                     textColor={color.White}
                     text={t('save')}
                     onPress={handleSubmit}
                   />
                 </>
               )}
-              <Line />
-              <Button
-                backgroundColor={color.Blue}
-                textColor={color.White}
-                text={t('signOutFromAccount')}
-                onPress={signOut}
-              />
             </Form>
           )}
         </Formik>

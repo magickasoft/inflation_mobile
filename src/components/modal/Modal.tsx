@@ -1,12 +1,12 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import styled from 'styled-components/native';
 
 import {useTranslation} from '../../i18n';
-import {color, DefaultThemeScheme} from '../../theme';
+import {color} from '../../theme';
 import {DismissKeyboardView} from '../dismissKeyboardView';
-import {ModalWrapper} from './ModalWrapper';
-import {SwipeBar} from './SwipeBar';
+import {ModalWrapper} from './modalWrapper';
+import {SwipeBar} from './swipeBar';
 
 const s = StyleSheet.create({
   container: {
@@ -26,7 +26,7 @@ const s = StyleSheet.create({
   },
 });
 
-const Header = styled.View<{theme: DefaultThemeScheme}>`
+const Header = styled.View`
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
@@ -38,7 +38,7 @@ export enum ModalType {
   FullScreen = 'fullScreen',
 }
 
-export const Modal: FC<{
+export const Modal: React.FC<{
   children: any;
   type: ModalType;
   label?: string;
@@ -53,62 +53,64 @@ export const Modal: FC<{
   onClose?: () => void;
   isVisible?: boolean;
   direct?: 'center' | 'bottom';
-}> = ({
-  onClose,
-  label,
-  title = '',
-  titleStyles,
-  contentStyles,
-  children,
-  type = ModalType.DynamicHeight,
-  allowView = false,
-  headerContent,
-  leftButton,
-  closeTextStyle,
-  gesturesEnabled = false,
-  isVisible,
-  direct,
-  ...props
-}) => {
-  const {t} = useTranslation();
-  const heightStyle = type === ModalType.FullScreen ? {flex: 1} : undefined;
-  const Component = allowView ? View : DismissKeyboardView;
-
-  const gestureProps = {
-    onSwipe: onClose,
-    swipeDirection: 'down',
-    swipeThreshold: 80,
-    scrollOffsetMax: 100,
-  };
-
-  const modalProps = {
-    ...props,
-    direct,
+}> = React.memo(
+  ({
+    onClose,
+    label,
+    title = '',
+    titleStyles,
+    contentStyles,
+    children,
+    type = ModalType.DynamicHeight,
+    allowView = false,
+    headerContent,
+    leftButton,
+    closeTextStyle,
+    gesturesEnabled = false,
     isVisible,
-    ...(gesturesEnabled ? gestureProps : {}),
-  };
+    direct,
+    ...props
+  }) => {
+    const {t} = useTranslation();
+    const heightStyle = type === ModalType.FullScreen ? {flex: 1} : undefined;
+    const Component = allowView ? View : DismissKeyboardView;
 
-  return (
-    <ModalWrapper {...modalProps}>
-      <Component style={[s.container, contentStyles, heightStyle]}>
-        <Header>
-          {headerContent ? (
-            headerContent()
-          ) : (
-            <>
-              {leftButton || null}
-              <Text style={[s.defaultText, titleStyles]}>{title}</Text>
-              <TouchableOpacity onPress={onClose}>
-                <Text style={[s.closeText, closeTextStyle || {}]}>
-                  {label || t('closeIt')}
-                </Text>
-              </TouchableOpacity>
-            </>
-          )}
-        </Header>
-        {children}
-        {gesturesEnabled && <SwipeBar />}
-      </Component>
-    </ModalWrapper>
-  );
-};
+    const gestureProps = {
+      onSwipe: onClose,
+      swipeDirection: 'down',
+      swipeThreshold: 80,
+      scrollOffsetMax: 100,
+    };
+
+    const modalProps = {
+      ...props,
+      direct,
+      isVisible,
+      ...(gesturesEnabled ? gestureProps : {}),
+    };
+
+    return (
+      <ModalWrapper {...modalProps}>
+        <Component style={[s.container, contentStyles, heightStyle]}>
+          <Header>
+            {headerContent ? (
+              headerContent()
+            ) : (
+              <>
+                {leftButton || null}
+                <Text style={[s.defaultText, titleStyles]}>{title}</Text>
+                <TouchableOpacity onPress={onClose}>
+                  <Text style={[s.closeText, closeTextStyle || {}]}>
+                    {label || t('closeIt')}
+                  </Text>
+                </TouchableOpacity>
+              </>
+            )}
+          </Header>
+          {children}
+          {gesturesEnabled && <SwipeBar />}
+        </Component>
+      </ModalWrapper>
+    );
+  },
+);

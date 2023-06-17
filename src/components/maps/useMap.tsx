@@ -1,10 +1,10 @@
 import React from 'react';
 import {LatLng} from 'react-native-maps';
 
-import {config} from '../../config';
+import {useMaptiler} from '../../hooks/useMaptiler';
 
 export const useMap = () => {
-  const maptiler = config.MAPTILER;
+  const maptiler = useMaptiler();
   const [activeMarker, setActiveMarker] = React.useState<string>();
   const setCoordinates = (marker: any): LatLng => {
     return {
